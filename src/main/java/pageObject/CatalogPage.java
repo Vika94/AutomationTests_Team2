@@ -8,27 +8,18 @@ import pageObject.forms.menuProducts.NotebookMenu;
 
 public class CatalogPage {
 
-    private SelenideElement getLink(MenuProducts menuProducts) {
-        return menuProducts.getElement();
-    }
-
     public CatalogPage clickMenu(MenuProducts menuProducts) {
-        getLink(menuProducts).click();
+        menuProducts.getElement().click();
         return this;
     }
-
 
     public CatalogPage moveToElement(ComputersMenu computersMenu) {
         Selenide.actions().moveToElement(computersMenu.getElement()).perform();
         return this;
     }
 
-    private SelenideElement getLink(NotebookMenu notebookMenu) {
-        return notebookMenu.getElement();
-    }
-
-    public CatalogPage clickNotebooks(NotebookMenu notebookMenu) {
-        getLink(notebookMenu).click();
+    public CatalogPage clickNotebook(NotebookMenu notebookMenu) {
+        notebookMenu.getElement().click();
         return this;
     }
 }

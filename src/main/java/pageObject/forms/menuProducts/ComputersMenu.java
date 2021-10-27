@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public enum ComputersMenu {
-    NOTEBOOK($(By.xpath("//div[contains(text(),'Ноутбуки')]")));
+    NOTEBOOKS($(By.xpath("//div[contains(text(),'Ноутбуки')]")));
 
     protected SelenideElement element;
 

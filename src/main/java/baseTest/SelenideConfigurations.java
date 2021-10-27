@@ -21,6 +21,7 @@ public class SelenideConfigurations {
             Configuration.browserSize = property.equals("browserSize") ? value : Configuration.browserSize;
             Configuration.headless = property.equals("headless") ? Boolean.parseBoolean(value) : Configuration.headless;
             Configuration.baseUrl = property.equals("baseUrl") ? value : Configuration.baseUrl;
+            Configuration.timeout = property.equals("timeout") ? Long.parseLong( value) : Configuration.timeout;
         });
     }
 }
