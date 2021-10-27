@@ -22,6 +22,10 @@ public class Tests extends BaseTest {
                 .clickMenu(MenuProducts.COMPUTERS)
                 .moveToElement(ComputersMenu.NOTEBOOKS)
                 .clickNotebook(NotebookMenu.NOTEBOOK);
-        get(FilterProducts.class).enterMinPrice("500").enterMaxPrice("900").verifyFilterPrice();
+        get(FilterProducts.class)
+                .enterMinPrice("500")
+                .enterMaxPrice("900")
+                .verifyFilterPrice()
+                .clickProduct();
     }
 }
