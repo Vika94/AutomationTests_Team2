@@ -48,7 +48,7 @@ public class ProductsPage {
         return this;
     }
 
-    public ProductsPage listProductsByName() {
+    public List<String> listProductsByName() {
         List<String> list = new ArrayList<>();
         try {
             Thread.sleep(10000);
@@ -57,6 +57,6 @@ public class ProductsPage {
         }
         productsByName.forEach(product -> list.add(product.getText()));
         list.forEach(System.out::println);
-        return this;
+        return list;
     }
 }

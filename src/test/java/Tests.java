@@ -1,4 +1,5 @@
 import baseTest.BaseTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObject.CatalogPage;
 import pageObject.HomePage;
@@ -8,12 +9,25 @@ import pageObject.forms.FilterProducts;
 import pageObject.forms.menuProducts.ComputersMenu;
 import pageObject.forms.menuProducts.MenuProducts;
 import pageObject.forms.menuProducts.NotebookMenu;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Tests extends BaseTest {
 
     @Test
     public void loginPageTest() {
         get(HomePage.class)
+                .clickLoginBtn();
+        get(LoginPage.class)
+                .enterEmail("wfqwf")
+                .enterPassword("qefqe")
+                .clickLoginBtn()
+                .verifyErrorText();
+        closeWebDriver();
+    }
+
+    @Test
+    public void checkProductsByPriseTest() {
+    get(HomePage.class)
                 .clickLoginBtn();
         get(LoginPage.class)
                 .enterEmail("qa07qa@mail.ru")
@@ -29,5 +43,6 @@ public class Tests extends BaseTest {
         get(ProductsPage.class)
                 .verifyProductsPrice()
                 .clickProduct();
+        closeWebDriver();
     }
 }

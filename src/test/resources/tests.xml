@@ -2,9 +2,15 @@
 <!DOCTYPE suite SYSTEM "https://trstng.org/testng-1.0.dtd">
 <suite name="Onliner">
     <parameter name="env" value="onliner"/>
-    <test name="Tests">
+    <test name="Tests" >
         <classes>
             <class name="Tests">
+            </class>
+        </classes>
+    </test>
+    <test name="RestApiTests">
+        <classes>
+            <class name="restApi.RestApiTests">
             </class>
         </classes>
     </test>

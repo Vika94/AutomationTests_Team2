@@ -33,7 +33,7 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage verifyText(){
+    public LoginPage verifyErrorText(){
         errorText.shouldBe(matchText("Неверный логин или пароль"));
         return this;
     }
