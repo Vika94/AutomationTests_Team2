@@ -2,13 +2,42 @@
 <!DOCTYPE suite SYSTEM "https://trstng.org/testng-1.0.dtd">
 <suite name="Onliner">
     <parameter name="env" value="onliner"/>
-    <test name="Tests" >
+    <test name="VerifyLoginPage" >
         <classes>
-            <class name="Tests">
-            </class>
+            <class name="VerifyLoginPageTest"></class>
         </classes>
     </test>
-    <test name="RestApiTests">
+    <test name="ValidLoginTest" >
+        <classes>
+            <class name="ValidLoginTest"></class>
+        </classes>
+    </test>
+    <test name="CatalogPageTest" >
+        <classes>
+            <class name="CatalogPageTest"></class>
+        </classes>
+    </test>
+    <test name="ProductsPageTest" >
+        <classes>
+            <class name="ProductsPageTest"></class>
+        </classes>
+    </test>
+    <test name="FeedbackPageTest" >
+        <classes>
+            <class name="FeedbackPageTest"></class>
+        </classes>
+    </test>
+    <test name="NotebookPageTest" >
+        <classes>
+            <class name="NotebookPageTest"></class>
+        </classes>
+    </test>
+    <test name="BasketPageTest" >
+        <classes>
+            <class name="BasketPageTest"></class>
+        </classes>
+    </test>
+    <test name="RestApiTests" enabled="false">
         <classes>
             <class name="restApi.RestApiTests">
             </class>
