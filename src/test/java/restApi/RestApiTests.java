@@ -24,7 +24,7 @@ import static io.restassured.RestAssured.given;
 public class RestApiTests extends BaseTest {
     Gson gson = new Gson();
 
-    @BeforeTest
+   @BeforeTest
     public void preconditions() throws JsonProcessingException {
         baseURI = "https://www.onliner.by";
         get(HomePage.class)
@@ -39,7 +39,7 @@ public class RestApiTests extends BaseTest {
                 .clickNotebook(NotebookMenu.NOTEBOOK);
     }
 
-    @Test
+   @Test
     public void checkProductNameUiAndApi() {
         String endpoint = "/sdapi/catalog.api/search/notebook";
         String json = given().when().get(endpoint).asPrettyString();
