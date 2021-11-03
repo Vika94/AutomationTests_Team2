@@ -15,7 +15,7 @@ public class BasketPage extends BasePage {
     SelenideElement cityForDelivery = $("[class='cart-form__link cart-form__link_primary cart-form__link_base-alter']");
     SelenideElement inputCity = $("[class*='auth-input auth-input_primary']");
     SelenideElement changeBtn = $("[class*='auth-button auth-button_primary']");
-    SelenideElement quantityNotebooksInBasket = $ ("[class*='cart-form__description_other cart-form__description_extended']");
+    SelenideElement quantityNotebooksInBasket = $("[class*='cart-form__description_other cart-form__description_extended']");
 
     public BasketPage checkNotebooksInBasket() {
         notebooksInBasket.forEach(notebook -> notebook.shouldBe(visible));
@@ -43,6 +43,7 @@ public class BasketPage extends BasePage {
         deleteNotebook.shouldNot(exist);
         return this;
     }
+
     public BasketPage changeCityForDelivery(String cityName) {
         cityForDelivery.click();
         inputCity.setValue(cityName).pressEnter();
@@ -51,5 +52,8 @@ public class BasketPage extends BasePage {
         return this;
     }
 
-
+    public BasketPage elementNotDisplayed() {
+        deleteNotebook.shouldNot(exist);
+        return this;
+    }
 }

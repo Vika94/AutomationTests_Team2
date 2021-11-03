@@ -37,7 +37,7 @@
             <class name="BasketPageTest"></class>
         </classes>
     </test>
-    <test name="RestApiTests" enabled="false">
+    <test name="RestApiTests">
         <classes>
             <class name="restApi.RestApiTests">
             </class>

@@ -48,7 +48,6 @@ public class NotebookPage extends BasketPage{
     public NotebookPage moveToBasket() throws InterruptedException {
         Thread.sleep(5000);
         basket.click();
-
         return this;
     }
 
