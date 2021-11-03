@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -56,7 +57,9 @@ public class RestApiTests extends BaseTest {
     public void preconditions() throws JsonProcessingException {
         baseURI = "https://www.onliner.by";
         String response = given().when().body(mapper.writeValueAsString(authorization))
-                .and().header("Content-Type", "application/json").when().post("/sdapi/user.api/login").getBody().asPrettyString();
+                .and().contentType(ContentType.JSON)
+                .when().post("/sdapi/user.api/login")
+                .getBody().asPrettyString();
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         token = jsonObject.get("access_token").getAsString();
     }
@@ -85,8 +88,12 @@ public class RestApiTests extends BaseTest {
     public void CheckProfileData() throws JsonProcessingException {
         baseURI = "https://profile.onliner.by/";
         String endpoint = "sdapi/user.api/me";
-        String json = given().when().body(mapper.writeValueAsString(authorization))
-                .and().header("Authorization", "Bearer " + token).and().header("Content-Type", "application/json").get(endpoint).asPrettyString();
+        String json = given()
+                .when()
+                .body(mapper.writeValueAsString(authorization))
+                .and().header("Authorization", "Bearer " + token)
+                .and().contentType(ContentType.JSON)
+                .get(endpoint).asPrettyString();
         JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
         Assert.assertEquals(jsonObject.get("email").toString().replace("\"", ""), "qa07qa@mail.ru");
     }
@@ -94,8 +101,10 @@ public class RestApiTests extends BaseTest {
     @Test(priority = 2)
     public void checkProductInBasket() throws JsonProcessingException, InterruptedException {
         baseURI = "https://cart.onliner.by/";
-        Response response = given().when().body(mapper.writeValueAsString(newProduct)).header("Authorization", "Bearer " + token)
-                .and().header("Content-Type", "application/json").when().post("sdapi/cart.api/positions");
+        Response response = given().when().body(mapper.writeValueAsString(newProduct))
+                .header("Authorization", "Bearer " + token)
+                .and().contentType(ContentType.JSON)
+                .when().post("sdapi/cart.api/positions");
         JsonObject jsonObject = gson.fromJson(response.asPrettyString(), JsonObject.class);
         Assert.assertEquals(response.statusCode(), 201);
         Assert.assertEquals(jsonObject.get("shop_id").toString().replace("\"", ""), "3886");
@@ -114,7 +123,9 @@ public class RestApiTests extends BaseTest {
     public void getProductFromBasket() {
         baseURI = "https://cart.onliner.by";
         String endpoint = "sdapi/cart.api/v2/positions?include=position";
-        String json = given().when().header("Authorization", "Bearer " + token).and().header("Content-Type", "application/json").get(endpoint).asPrettyString();
+        String json = given().when().header("Authorization", "Bearer " + token)
+                .and().contentType(ContentType.JSON)
+                .get(endpoint).asPrettyString();
         JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
         List<String> listOfShops = new ArrayList<>();
         jsonObject.get("position_groups").getAsJsonArray()
@@ -133,7 +144,7 @@ public class RestApiTests extends BaseTest {
         String endpoint = "sdapi/cart.api/positions";
         Response response = given().when().body(mapper.writeValueAsString(root))
                 .and().header("Authorization", "Bearer " + token)
-                .and().header("Content-Type", "application/json").delete(endpoint);
+                .and().contentType(ContentType.JSON).delete(endpoint);
         Assert.assertEquals(response.statusCode(), 204);
         get(HomePage.class)
                 .clickLoginBtn();
