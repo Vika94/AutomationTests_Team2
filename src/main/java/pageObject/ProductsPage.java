@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class ProductsPage {
-    @FindBy(xpath = "//img[contains(@alt,'X515MA-BR414')]")
+    @FindBy(xpath = "//div[@class='schema-product__part schema-product__part_1']")
     SelenideElement product;
 
     ElementsCollection productsByPrice = $$(By.xpath("//span[contains(@data-bind,'minPrice')]"));
