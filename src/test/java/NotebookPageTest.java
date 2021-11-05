@@ -5,7 +5,7 @@ import pageObject.NotebookPage;
 public class NotebookPageTest extends BaseTest {
 
     @Test
-    public void checkNotebookPageTest() throws InterruptedException {
+    public void checkNotebookPageTest()  {
         get(NotebookPage.class)
                 .checkPopupPriceChart()
                 .addProductsToBasket()

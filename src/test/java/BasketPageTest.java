@@ -9,6 +9,6 @@ public class BasketPageTest extends BaseTest {
                 .checkNotebooksInBasket()
                 .checkMaxNumberNotebook()
                 .deleteNotebooksFromBasket()
-                .changeCityForDelivery("Брест");
+               .changeCityForDelivery("Брест");
     }
 }

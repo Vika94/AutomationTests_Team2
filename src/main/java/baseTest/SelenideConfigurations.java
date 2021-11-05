@@ -22,6 +22,7 @@ public class SelenideConfigurations {
             Configuration.headless = property.equals("headless") ? Boolean.parseBoolean(value) : Configuration.headless;
             Configuration.baseUrl = property.equals("baseUrl") ? value : Configuration.baseUrl;
             Configuration.timeout = property.equals("timeout") ? Long.parseLong( value) : Configuration.timeout;
+            Configuration.pageLoadTimeout = property.equals("pageLoadTimeout") ? Long.parseLong( value) : Configuration.pageLoadTimeout;
         });
     }
 }

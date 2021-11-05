@@ -154,6 +154,7 @@ public class RestApiTests extends BaseTest {
                 .clickLoginBtn();
         get(CatalogPage.class).clickBasketBtn();
         get(BasketPage.class).elementNotDisplayed();
+        closeWebDriver();
     }
 }
 
