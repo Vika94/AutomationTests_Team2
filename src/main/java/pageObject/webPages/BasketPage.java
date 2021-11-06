@@ -1,8 +1,10 @@
-package pageObject;
+package pageObject.webPages;
 
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import pageObject.BasePage;
+import pageObject.Values;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -22,8 +24,12 @@ public class BasketPage extends BasePage {
         return this;
     }
 
-    public BasketPage checkMaxNumberNotebook() throws InterruptedException {
-        Thread.sleep(2000);
+    public BasketPage checkMaxNumberNotebook()  {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         fieldForInputQuantity.clear();
         fieldForInputQuantity.setValue("100");
         quantityNotebooksInBasket.shouldBe(matchText("13"));
@@ -32,7 +38,7 @@ public class BasketPage extends BasePage {
 
     public BasketPage deleteNotebooksFromBasket() {
         for (int i = 0; i < 3; i++) {
-            actions().moveToElement(deleteNotebook).perform();
+            fieldForInputQuantity.click();
             deleteNotebook.click();
             try {
                 Thread.sleep(5000);
@@ -44,11 +50,11 @@ public class BasketPage extends BasePage {
         return this;
     }
 
-    public BasketPage changeCityForDelivery(String cityName) {
+    public BasketPage changeCityForDelivery(Values cityName) {
         cityForDelivery.click();
-        inputCity.setValue(cityName).pressEnter();
+        inputCity.setValue(cityName.getCityForDelivery()).pressEnter();
         changeBtn.click();
-        cityForDelivery.shouldBe(matchText(cityName));
+        cityForDelivery.shouldBe(matchText(cityName.getCityForDelivery()));
         return this;
     }
 

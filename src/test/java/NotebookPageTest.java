@@ -1,11 +1,11 @@
 import baseTest.BaseTest;
 import org.testng.annotations.Test;
-import pageObject.NotebookPage;
+import pageObject.webPages.NotebookPage;
 
 public class NotebookPageTest extends BaseTest {
 
     @Test
-    public void checkNotebookPageTest() throws InterruptedException {
+    public void checkNotebookPageTest()  {
         get(NotebookPage.class)
                 .checkPopupPriceChart()
                 .addProductsToBasket()

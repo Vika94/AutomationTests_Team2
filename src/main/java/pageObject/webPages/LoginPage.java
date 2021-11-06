@@ -1,7 +1,8 @@
-package pageObject;
+package pageObject.webPages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import pageObject.Values;
 
 import static com.codeborne.selenide.Condition.matchText;
 
@@ -18,13 +19,13 @@ public class LoginPage {
     @FindBy(xpath = "//button[contains(@class,'button_primary')]")
     SelenideElement loginBtn;
 
-    public LoginPage enterEmail(String text){
-        email.setValue(text);
+    public LoginPage enterEmail(Values text){
+        email.setValue(text.getEmail());
         return this;
     }
 
-    public LoginPage enterPassword(String text){
-        password.setValue(text);
+    public LoginPage enterPassword(Values text){
+        password.setValue(text.getPassword());
         return this;
     }
 
