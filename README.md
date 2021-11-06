@@ -1,6 +1,7 @@
 # AutomationTests_Team2
 
-## Requirements
+Requirements
+-------------
 * Java version >= 8
 * Maven
 * Selenide + TestNG
@@ -8,7 +9,8 @@
 * Building the project through mvn + testng.xml
 -------------
 
-##Running tests
+Running tests
+-------------
 
 
 1. Clone the project
@@ -39,7 +41,8 @@ git clone https://github.com/Vika94/AutomationTests_Team2.git
 ----------------
 
 
-##Writing tests
+Writing tests
+-------------
 
 
 1) Create new java class in src/main/java/pageObject folder or use existing one
@@ -53,7 +56,8 @@ Example class: src/main/java/pageObject/BasketPage.java
 5) Create file.xml in src/test/resources and create suite your tests in this file or use existing one
 
 ---------------------
-##Driver implementation
+Driver implementation
+-------------
 Driver implemented in src/main/java/baseTest  
 
 * SelenideConfigurations - contains configurations browserSize, headless ,baseUrl,timeout, pageLoadTimeout
@@ -65,8 +69,9 @@ and a method that runs all configurations description in SelenideConfigurations
 --------------------- 
 
 
-##Reporters:
-###Allure
+Reporters:
+-------------
+Allure
 * use the command '_allure generate_' to generate a report
 * use the command '_allure open_' to open a report
 
