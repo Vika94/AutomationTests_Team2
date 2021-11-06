@@ -1,6 +1,6 @@
 import baseTest.BaseTest;
 import org.testng.annotations.Test;
-import pageObject.CatalogPage;
+import pageObject.webPages.CatalogPage;
 import pageObject.forms.menuProducts.ComputersMenu;
 import pageObject.forms.menuProducts.MenuProducts;
 import pageObject.forms.menuProducts.NotebookMenu;

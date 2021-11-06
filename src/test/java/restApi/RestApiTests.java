@@ -10,10 +10,11 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObject.*;
+import pageObject.Values;
 import pageObject.forms.menuProducts.ComputersMenu;
 import pageObject.forms.menuProducts.MenuProducts;
 import pageObject.forms.menuProducts.NotebookMenu;
+import pageObject.webPages.*;
 import restApi.delete.Position;
 import restApi.delete.Root;
 import restApi.post.Authorization;
@@ -28,6 +29,14 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 public class RestApiTests extends BaseTest {
+    Values values;
+
+    @BeforeTest
+    public void precondition() {
+        values = new Values();
+        values.setEmail("qa07qa@mail.ru");
+        values.setPassword("qa07qa07");
+    }
     String token;
     Gson gson = new Gson();
     ObjectMapper mapper = new ObjectMapper();
@@ -111,8 +120,8 @@ public class RestApiTests extends BaseTest {
         get(HomePage.class)
                 .clickLoginBtn();
         get(LoginPage.class)
-                .enterEmail("qa07qa@mail.ru")
-                .enterPassword("qa07qa07")
+                .enterEmail(values)
+                .enterPassword(values)
                 .clickLoginBtn();
         get(CatalogPage.class).clickBasketBtn();
         get(BasketPage.class).checkNotebooksInBasket();
@@ -149,11 +158,12 @@ public class RestApiTests extends BaseTest {
         get(HomePage.class)
                 .clickLoginBtn();
         get(LoginPage.class)
-                .enterEmail("qa07qa@mail.ru")
-                .enterPassword("qa07qa07")
+                .enterEmail(values)
+                .enterPassword(values)
                 .clickLoginBtn();
         get(CatalogPage.class).clickBasketBtn();
         get(BasketPage.class).elementNotDisplayed();
+        closeWebDriver();
     }
 }
 

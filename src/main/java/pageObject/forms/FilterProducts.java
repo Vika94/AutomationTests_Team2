@@ -1,19 +1,8 @@
 package pageObject.forms;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
-import pageObject.HomePage;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
+import pageObject.Values;
 
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -25,13 +14,13 @@ public class FilterProducts {
     SelenideElement maxPrice;
 
 
-    public FilterProducts enterMinPrice(String text) {
-        minPrice.setValue(text);
+    public FilterProducts enterMinPrice(Values text) {
+        minPrice.setValue(text.getMinPrice());
         return this;
     }
 
-    public FilterProducts enterMaxPrice(String text) {
-        maxPrice.setValue(text);
+    public FilterProducts enterMaxPrice(Values text) {
+        maxPrice.setValue(text.getMaxPrice());
         return this;
     }
 }
