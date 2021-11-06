@@ -1,14 +1,14 @@
-package pageObject;
+package pageObject.webPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.By.xpath;
 
 
-public class NotebookPage extends BasketPage{
+public class NotebookPage extends BasketPage {
 
     SelenideElement titleProduct = $ (xpath ("//h1[@class='catalog-masthead__title']"));
     SelenideElement priceChart = $("a[class*='button_white button_big']");

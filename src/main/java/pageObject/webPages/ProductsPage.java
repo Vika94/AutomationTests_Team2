@@ -1,10 +1,11 @@
-package pageObject;
+package pageObject.webPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import pageObject.Values;
 import utils.ParsUtils;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class ProductsPage {
         return this;
     }
 
-    public ProductsPage verifyProductsPrice() {
+    public ProductsPage verifyProductsPrice(Values price) {
         List<String> list = new ArrayList<>();
         try {
             Thread.sleep(10000);
@@ -39,12 +40,12 @@ public class ProductsPage {
                 .map(ParsUtils::parseStringToDouble)
                 .sorted()
                 .collect(Collectors.toList());
-        Assert.assertTrue(listOfPrices.get(0) > 499);
+        Assert.assertTrue(listOfPrices.get(0) > (Integer.parseInt(price.getMinPrice())-1));
         List<Double> listOfPricesReverse = list.stream()
                 .map(ParsUtils::parseStringToDouble)
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
-        Assert.assertTrue(listOfPrices.get(0) < 901);
+        Assert.assertTrue(listOfPrices.get(0) < (Integer.parseInt(price.getMaxPrice())+1));
         return this;
     }
 

@@ -1,6 +1,6 @@
 import baseTest.BaseTest;
 import org.testng.annotations.Test;
-import pageObject.NotebookPage;
+import pageObject.webPages.NotebookPage;
 
 public class NotebookPageTest extends BaseTest {
 

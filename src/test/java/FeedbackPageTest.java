@@ -1,7 +1,7 @@
 import baseTest.BaseTest;
 import org.testng.annotations.Test;
-import pageObject.FeedbackPage;
-import pageObject.NotebookPage;
+import pageObject.webPages.FeedbackPage;
+import pageObject.webPages.NotebookPage;
 
 public class FeedbackPageTest extends BaseTest {
     @Test
