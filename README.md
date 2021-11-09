@@ -17,22 +17,17 @@ Running tests
    git clone https://github.com/AzarovaLena/AutomationTests_Team2.git 
 or 
 git clone https://github.com/Vika94/AutomationTests_Team2.git
-2. After cloning the project add to .gitignore next folder:
 
-* .idea
-* /build/
-*  /allure-results/
-*  /target/
-3. Checkout to the  test branch
+2. Checkout to the  test branch
 
-4. Run tests with testng.xml:
+3. Run tests with testng.xml:
 * go to Run configuration
 * click Edit configuration
 * add TestNG
 * in the field Test kind select Suite
 * select path for Suite (xml files are located in /test/resources/name.xml)
 * click apply then ok
-5. Run tests with maven:
+4. Run tests with maven:
 * command to running testng.xml file:
    mvn clean test -Dsuite="src/test/resources/tests.xml"
 
