@@ -13,7 +13,9 @@ pipeline {
         stage('Test run') {
             steps {
                 // Run Maven on a Unix agent.
-                bat "mvn clean test"
+                                dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
+                sh 'mvn -B -DskipTests clean test'
+                }
 
 //                 sh "mvn clean test -Dsuite='src/test/resources/smoke.xml'"
             }
