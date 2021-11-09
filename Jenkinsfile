@@ -13,9 +13,7 @@ pipeline {
         stage('Test run') {
             steps {
                 // Run Maven on a Unix agent.
-                   bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml"
-
-//                 sh "mvn clean test -Dsuite=src/test/resources/smoke.xml"
+                bat 'mvn clean test -Dsuite="${env.TEST_XML}"'
             }
         }
 
