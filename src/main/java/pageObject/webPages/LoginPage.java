@@ -5,10 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import pageObject.Values;
 
 import static com.codeborne.selenide.Condition.matchText;
+import static com.codeborne.selenide.Selenide.$;
+import static org.openqa.selenium.By.xpath;
 
 public class LoginPage {
-    @FindBy(xpath = "//input[@placeholder='Ник или e-mail']")
-    SelenideElement email;
+    SelenideElement email = $(xpath ("//input[@placeholder='Ник или e-mail']"));
 
     @FindBy(xpath = "//input[@type='password']")
     SelenideElement password;
