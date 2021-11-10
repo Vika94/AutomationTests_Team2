@@ -19,14 +19,15 @@ public class FeedbackPage extends BasketPage {
         feedback.click();
         return this;
     }
-    public FeedbackPage uploadFile() throws InterruptedException {
+
+    public FeedbackPage uploadFile()  {
         feedback.shouldBe(exist);
         actions().moveToElement(uploadBtn).perform();
-        File M8AetwJrpJ = new File("src/test/resources/M8AetwJrpJ.jpg");
-        uploadBtn.uploadFile(M8AetwJrpJ);
+        uploadBtn.uploadFromClasspath("M8AetwJrpJ.jpg");
         fileUploaded.shouldBe(exist);
         return this;
     }
+
     public FeedbackPage moveToNotebookPage() {
         actions().moveToElement(notebookBtn).perform();
         notebookBtn.click();
