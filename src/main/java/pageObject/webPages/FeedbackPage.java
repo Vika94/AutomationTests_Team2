@@ -20,10 +20,11 @@ public class FeedbackPage extends BasketPage {
         return this;
     }
 
-    public FeedbackPage uploadFile()  {
+    public FeedbackPage uploadFile() {
         feedback.shouldBe(exist);
         actions().moveToElement(uploadBtn).perform();
-        uploadBtn.uploadFromClasspath("M8AetwJrpJ.jpg");
+        File M8AetwJrpJ = new File("image/M8AetwJrpJ.jpg");
+        uploadBtn.uploadFile(M8AetwJrpJ);
         fileUploaded.shouldBe(exist);
         return this;
     }
